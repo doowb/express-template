@@ -1,7 +1,7 @@
 {
   "name": "express-template",
   "description": "View replacement for Express using Template.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/doowb/express-template",
   "author": {
     "name": "Brian Woodward",
