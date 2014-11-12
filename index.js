@@ -64,7 +64,7 @@ View.prototype.lookup = function(filepath){
   var ext = this.ext;
 
   // <filepath>.<engine>
-  if (!isAbsolute(filepath)) filepath = path.join(this.root, 'pages', filepath);
+  if (!isAbsolute(filepath)) filepath = path.join(this.root, filepath);
   if (fs.existsSync(filepath)) return filepath;
 
   // <filepath>/index.<engine>
