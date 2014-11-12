@@ -1,0 +1,44 @@
+{
+  "name": "express-template",
+  "description": "View replacement for Express using Template.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/doowb/express-template",
+  "author": {
+    "name": "Brian Woodward",
+    "url": "https://github.com/doowb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/doowb/express-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/doowb/express-template/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/doowb/express-template/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "verb-tag-jscomments": ">= 0.2.0",
+    "verb": ">= 0.2.6",
+    "mocha": "*"
+  },
+  "keywords": [
+    "docs",
+    "documentation",
+    "generate",
+    "generator",
+    "markdown",
+    "templates",
+    "verb"
+  ]
+}
