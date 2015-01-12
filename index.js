@@ -81,13 +81,13 @@ View.prototype.lookup = function(filepath){
  */
 
 View.prototype.render = function(options, fn){
-  var key = path.basename(this.path);
+  var key = View.template.option('renameKey')(this.path);
   View.template.render(key, options, fn);
 };
 
 /**
  * Using the given configuration object, setup the `template` object.
- * 
+ *
  * @param  {Object} `config` Configuration object containing:
  */
 
@@ -109,30 +109,31 @@ View.prototype.template = View.template = null
 
 /**
  * Helper function for initial configuration of the Template instance.
- * 
+ *
  * @param  {Object} `config` Configuration object for setting up the `template` object.
  * @api private
  */
 
 function initTemplate (config) {
   if (!View.template) {
-    var root = config.root || path.join(__dirname, '../views');
-    var data = config.data || false;
-    var layouts = config.layouts || path.join(root, 'layouts/*.hbs');
-    var partials = config.partials || path.join(root, '{partials,includes}/*.hbs');
-
     View.prototype.template = View.template = new Template();
     View.template.engine('hbs', engineHandlebars);
-    if (data) View.template.data(data);
-    View.template.partials(partials);
-    View.template.layouts(layouts);
   }
+
+  var root = config.root || path.join(__dirname, '../views');
+  var data = config.data || false;
+  var layouts = config.layouts || path.join(root, 'layouts/*.hbs');
+  var partials = config.partials || path.join(root, '{partials,includes}/*.hbs');
+
+  if (data) View.template.data(data);
+  View.template.partials(partials);
+  View.template.layouts(layouts);
 };
 
 /**
  * Determine if a path is absolute.
  * Method taken from [express]
- * 
+ *
  * @param  {String} `filepath` Filepath to check.
  * @return {Boolean} If the `filepath` is absolute or not.
  */

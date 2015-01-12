@@ -9,8 +9,8 @@ describe('.config', function () {
       layouts: ['test/fixtures/layouts/*.hbs'],
       partials: ['test/fixtures/partials/*.hbs']
     });
-    Object.keys(View.template.cache.layouts).length.should.eql(2);
-    Object.keys(View.template.cache.partials).length.should.eql(1);
+    Object.keys(View.template.views.layouts).length.should.eql(2);
+    Object.keys(View.template.views.partials).length.should.eql(1);
     View.template.cache.data.should.exist;
     View.template.cache.data.site.should.exist;
     View.template.cache.data.site.title.should.exist;
