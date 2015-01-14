@@ -1,6 +1,8 @@
 
 var should = require('should');
-var View = require('../');
+var Template = require('template');
+var template = new Template();
+var View = require('../')(template);
 
 describe('.config', function () {
   it('should load layouts and partials', function () {

@@ -12,15 +12,25 @@
  */
 
 var engineHandlebars = require('engine-assemble');
-var Template = require('template');
 var path = require('path');
 var fs = require('fs');
 
 /**
- * Expose `View`.
+ * Get the View constructor using the given Template instance.
+ *
+ * ```js
+ * var View = require('express-template')(template);
+ * ```
  */
 
-module.exports = View;
+module.exports = function view (template) {
+  if (!template) {
+    throw new Error('An instance of Template is required.');
+  }
+  View.prototype.template = View.template = template;
+  return View;
+};
+
 
 /**
  * Initialize a new `View` with the given `name`.
@@ -96,18 +106,6 @@ View.prototype.config = View.config = function (config) {
 };
 
 /**
- * `template` object exposed to allow for customization.
- * All instances of `View` will use the same `template` instance
- * so all views have access to anything on `template`.
- *
- * See [template] for more configuration options
- *
- * @api public
- */
-
-View.prototype.template = View.template = null
-
-/**
  * Helper function for initial configuration of the Template instance.
  *
  * @param  {Object} `config` Configuration object for setting up the `template` object.
@@ -116,7 +114,10 @@ View.prototype.template = View.template = null
 
 function initTemplate (config) {
   if (!View.template) {
-    View.prototype.template = View.template = new Template();
+    throw new Error('Error creating a new View. Missing template.');
+  }
+
+  if (!View.template.getEngine('.hbs')) {
     View.template.engine('hbs', engineHandlebars);
   }
 
