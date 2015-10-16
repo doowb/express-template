@@ -43,5 +43,12 @@
   "dependencies": {
     "engine-assemble": "^0.2.0",
     "template": "^0.6.2"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Brian Woodward",
+      "email": "brian.woodward@gmail.com",
+      "url": "https://github.com/doowb"
+    }
+  ]
 }
